@@ -7,7 +7,19 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" style="margin-top: 20px;">
+    @include('flash::message')
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     @yield('content')
 </div>
 

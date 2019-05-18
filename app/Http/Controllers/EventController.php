@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Http\Requests\EventStoreRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -36,14 +38,24 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventStoreRequest $request)
     {
-//        dd($request->input());
-        $event = Event::create(
-            $request->input()
-        );
+//        $rules = [
+//            'name' => ['required', 'string', 'min:3', 'max:25'],
+//            'description' => ['required', 'string'],
+//        ];
+//
+//        $messages = [
+//            'required' => 'Please provide an event :attribute',
+//            'name.min' => 'Event :attribute must consist of at least 10 characters',
+//            'name.max' => 'Event :attribute cannot be longer than 50 characters',
+//        ];
+//
+//        Validator::make($request->input(), $rules, $messages)->validate();
 
-//        flash('Event created!')->success();
+        $event = Event::create($request->input());
+
+        flash('Event created!')->success();
 
         return redirect()->route('events.show', compact('event'));
     }
@@ -69,7 +81,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('events.edit', compact('event'));
     }
 
     /**
@@ -82,7 +94,11 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $event->update($request->input());
+
+        flash('Event updated!')->success();
+
+        return redirect()->route('events.edit', $event);
     }
 
     /**
@@ -94,6 +110,10 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+
+        flash('The event has been deleted!')->info();
+
+        return redirect()->route('events.index', $event);
     }
 }
