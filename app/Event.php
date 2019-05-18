@@ -97,4 +97,10 @@ class Event extends Model
         $this->attributes['password'] = bcrypt($password);
     }
 
+    public function users()
+    {
+        return $this->belongsToMany('App\User')
+            ->withTimestamps();
+    }
+
 }
