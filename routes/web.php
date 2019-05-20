@@ -19,3 +19,15 @@ Route::resource('events', 'EventController');
 
 Route::get('contact', 'ContactController@create')->name('contact.create');
 Route::post('contact', 'ContactController@store')->name('contact.store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+    'middleware' => 'admin',
+], function () {
+    Route::resource('users', "UsersController");
+});
