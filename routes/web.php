@@ -31,3 +31,5 @@ Route::group([
 ], function () {
     Route::resource('users', "UsersController");
 });
+
+Route::view('vue', 'vue');
