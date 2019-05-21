@@ -25,7 +25,9 @@ class Event extends Model
     use Sluggable;
     use SoftDeletes;
 
-    protected $guarded = [];
+//    protected $guarded = [];
+
+    protected $fillable = ['name', 'venue', 'city', 'description', 'enabled'];
 
     protected $dates = [
         'created_at',
