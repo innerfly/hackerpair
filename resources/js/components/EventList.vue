@@ -34,7 +34,7 @@
         data() {
             return {
                 error: '',
-                events: []
+                events: {}
             }
         },
         created() {
