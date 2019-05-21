@@ -1,0 +1,13 @@
+DELETE http://hackerpair.test/api/events/123?api_token=123
+
+Accept: */*
+Cache-Control: no-cache
+
+{"name":"test"}
+
+<> 2019-05-21T063116.404.html
+<> 2019-05-21T062942.404.html
+<> 2019-05-21T062720.404.html
+
+###
+

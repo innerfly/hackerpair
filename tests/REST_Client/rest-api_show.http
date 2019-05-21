@@ -1,0 +1,8 @@
+GET http://hackerpair.test/api/events/sed-consectetur?api_token=123
+Accept: */*
+Cache-Control: no-cache
+
+###
+#Content-Type: application/json
+
+
