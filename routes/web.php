@@ -33,3 +33,5 @@ Route::group([
 });
 
 Route::view('vue', 'vue');
+
+Route::resource('api/events', 'API\EventsController');

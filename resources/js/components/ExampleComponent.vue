@@ -7,18 +7,21 @@
 
 <script>
     export default {
-        data() {
-            return {
-                greeting: "Click the button to view the latest date and time!"
-            }
+        props: {
+            greeting: String
         },
+        // data() {
+        //     return {
+        //         greeting: "Click the button to view the latest date and time!"
+        //     }
+        // },
         methods: {
             updateTimestamp() {
                 this.greeting = new Date().toLocaleString()
             }
         },
-        mounted() {
-            console.log('Component mounted.')
-        }
+        // mounted() {
+        //     console.log('Component mounted.')
+        // }
     }
 </script>
