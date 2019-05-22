@@ -1843,7 +1843,7 @@ __webpack_require__.r(__webpack_exports__);
         page = 1;
       }
 
-      axios.get('api/events?page=' + page).then(function (response) {
+      axios.get('api/events_pagination?page=' + page).then(function (response) {
         _this.events = response.data;
       })["catch"](function (e) {
         _this.error = 'An error has occured';

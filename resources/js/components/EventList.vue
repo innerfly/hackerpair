@@ -45,7 +45,7 @@
                 if(typeof page === 'undefined'){
                     page = 1
                 }
-                axios.get('api/events?page=' + page)
+                axios.get('api/events_pagination?page=' + page)
                     .then(response => {
                         this.events = response.data
                     })

@@ -32,6 +32,5 @@ Route::group([
     Route::resource('users', "UsersController");
 });
 
+Route::get('api/events_pagination', 'API\EventsController@ShowEventsPagination');
 Route::view('vue', 'vue');
-
-Route::resource('api/events', 'API\EventsController');

@@ -15,12 +15,6 @@ class EventsController extends Controller
         return Event::orderBy('id', 'desc')
             ->take(5)
             ->get();
-
-
-        /* Vue pagination:
-         * return Event::select('name', 'city')
-            ->orderBy('id', 'desc')
-            ->paginate();*/
     }
 
     public function show(Event $event)
@@ -50,17 +44,24 @@ class EventsController extends Controller
 
     public function update(Request $request, Event $event)
     {
-        
+
     }
 
     public function destroy(Request $request, Event $event)
     {
         $user = User::where('api_token', $request->get('api_token'))->first();
 
-//        $user->events()->delete($event);
+        //        $user->events()->delete($event);
         $event->delete();
 
         return response(null, 204);
     }
 
+    public function ShowEventsPagination()
+    {
+        //         Vue pagination:
+        return Event::select('name', 'city')
+            ->orderBy('id', 'desc')
+            ->paginate();
+    }
 }
